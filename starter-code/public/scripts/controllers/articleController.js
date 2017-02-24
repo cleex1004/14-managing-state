@@ -15,8 +15,8 @@
     Article.findWhere('article_id', ctx.params.article_id, articleData);
   };
 
-  // TODO: Middleware for loading up articles by a certain author. Where does it get its input data? Where is its output used?
-  // Put your response in this comment...
+  // DONE: Middleware for loading up articles by a certain author. Where does it get its input data? Where is its output used?
+  // The input data is Article.all, and the output is the assignment of the articles property to the ctx object.
   articleController.loadByAuthor = (ctx, next) => {
     let authorData = articlesByAuthor => {
       ctx.articles = articlesByAuthor;

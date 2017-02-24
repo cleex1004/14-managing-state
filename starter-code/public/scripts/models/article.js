@@ -45,8 +45,8 @@
     )
   };
 
-  // TODO: We have a new method to query our DB for a specific record, based on varying criteria. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
-  // Put your response in this comment...
+  // DONE: We have a new method to query our DB for a specific record, based on varying criteria. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+  // Article.findWhere is invoked in articleController.js. The values that are passed in are field which is category/author/article_id, the value is ctx.params.categoryName/authorName/article_id, and the callback is category/author/article Data.
   Article.findWhere = function(field, value, callback) {
     $.get('/articles/find', {field: field, val: value})
     .then(callback)
