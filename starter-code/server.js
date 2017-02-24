@@ -15,8 +15,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
 
-// TODO: Describe what our function for our middleware / proxy handling interacts with, both in what it does and where it is called
-// Put your response in this comment...
+// DONE: Describe what our function for our middleware / proxy handling interacts with, both in what it does and where it is called
+// This is facilitating a request to the GitHub api and adds another layer of security. It interacts with repo.js because repos.requestRepos is making the GET request. This function is called below (line 35) to handle the request response.
 function proxyGitHub(request, response) {
   console.log('Routing GitHub request for', request.params[0]);
   (requestProxy({
@@ -30,8 +30,8 @@ function proxyGitHub(request, response) {
 app.get('/', (request, response) => response.sendFile('index.html', {root: './public'}));
 app.get('/new', (request, response) => response.sendFile('new.html', {root: './public'}));
 app.get('/about', (request, response) => response.sendFile('index.html', {root: './public'}));
-// TODO: Where is this route called in the code? When invoked, what happens next?
-// Put your response in this comment...
+// DONE: Where is this route called in the code? When invoked, what happens next?
+// This is called in repo.js and when invoked it will return the data (repos) from the api.
 app.get('/github/*', proxyGitHub);
 
 
@@ -68,8 +68,8 @@ app.get('/articles', (request, response) => {
 });
 
 
-// TODO: This is a new route to find a specific instance of an article record from the DB. Where is it invoked? What does it do?
-// Put your response in this comment...
+// DONE: This is a new route to find a specific instance of an article record from the DB. Where is it invoked? What does it do?
+// This is the route for the Article.findWhere method, it is invoked in articleView.js and article.js. It will join the two tables together using the author_id as the primary key.
 app.get('/articles/find', (request, response) => {
   let client = new pg.Client(conString);
   let sql = `SELECT * FROM articles
@@ -92,8 +92,8 @@ app.get('/articles/find', (request, response) => {
 })
 
 
-// TODO: Where is this route invoked? What does it do?
-// Put your response in this comment...
+// DONE: Where is this route invoked? What does it do?
+// This is the route that will display the specific articles that correlate with the category selected from the category filter. It is invoked in articleView.js in the articleView.handleFilters method.
 app.get('/categories', (request, response) => {
   let client = new pg.Client(conString);
 
@@ -197,8 +197,8 @@ app.delete('/articles/:id', (request, response) => {
   response.send('Delete complete');
 });
 
-// TODO: Where is this invoked? What does it do?
-// Put your response in this comment...
+// DONE: Where is this invoked? What does it do?
+// This is the route for the Article.prototype.truncateTable method, if it were invoked it would delete all of the data from the table in the database.
 app.delete('/articles', (request, response) => {
   client.query(
     'DELETE FROM articles;'

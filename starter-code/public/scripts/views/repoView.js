@@ -10,8 +10,8 @@
     $about.show().siblings().hide();
   };
 
-  // TODO: What is in 'render'? What values are passed in? Where does it interact elsewhere in the code?
-  // Put your response in this comment...
+  // DONE: What is in 'render'? What values are passed in? Where does it interact elsewhere in the code?
+  // Render is a function that compiles the repo data, populate the template, and append it to the #about ul.
   const render = Handlebars.compile($('#repo-template').text());
 
   repoView.index = function() {
