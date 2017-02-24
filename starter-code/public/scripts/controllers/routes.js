@@ -11,6 +11,6 @@ page('/author', '/');
 page('/author/:authorName', articleController.loadByAuthor, articleController.index);
 page('/category/:categoryName', articleController.loadByCategory, articleController.index);
 
-// TODO: What does this do? Is it necessary?
-// Put your response in this comment...
+// DONE: What does this do? Is it necessary?
+// This line of code is what invokes the page.js middleware to allows us to have a true single page application and control the functionality and views of our app. It is what makes page.js middleware work so yes, it is necessary.
 page();

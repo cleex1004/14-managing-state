@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const requestProxy = require('express-request-proxy');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const conString = 'postgres://localhost:5432'; // TODO: Don't forget to set your own conString
+const conString = 'postgres://localhost:5432'; // DONE: Don't forget to set your own conString
 const client = new pg.Client(conString);
 client.connect(console.error);
 
