@@ -1,5 +1,5 @@
-// TODO: Where is this invoked? Where does it interact elsewhere in the code?
-// Put your response in this comment...
+// DONE: Where is this invoked? Where does it interact elsewhere in the code?
+// This is an IIFE so it invokes itself. The only interaction is in article.js when fetching the articles and using them to calculate the number of words per article/per author. It will interact with admin.html when it populates the page.
 
 (function() {
   const adminView = {

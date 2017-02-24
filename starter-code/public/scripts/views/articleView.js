@@ -34,12 +34,12 @@
     });
   };
 
-  // TODO: Combine both filter functions to a single event handler,
+  // DONE: Combine both filter functions to a single event handler,
   // which simply redirects to a url like: /category/skateboarding or /author/Kevin+Bacon
   // Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
-  // Put your response in this comment...
+  // It is invoked in articleController.js when articleView.index is called. When the filter selector is changed, the author or category is passed in.
   articleView.handleFilters = function() {
-    $('#filters').one('change', 'select', function() {
+    $('#filters').on('change', 'select', function() {
       let resource = this.id.replace('-filter', '');
       $(this).parent().siblings().find('select').val(''); // Reset the val from the opposing drop down
       page(`/${resource}/${$(this).val().replace(/\W+/g, '+')}`); // Replace any/all whitespace with a +
@@ -67,8 +67,8 @@
     articleView.populateFilters();
     articleView.handleFilters();
 
-    // TODO: Replace setTeasers with just the truncation logic, if needed. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
-    // Put your response in this comment...
+    // DONE: Replace setTeasers with just the truncation logic, if needed. Where is it invoked? What values are passed in? Where does it interact elsewhere in the code?
+    // It is invoked in articleController.js when articleView.index is called. It takes in each article (if more than 1) and hides all of the body beyond the first two lines.
     if ($('#articles article').length > 1) {
       $('.article-body *:nth-of-type(n+2)').hide();
     }

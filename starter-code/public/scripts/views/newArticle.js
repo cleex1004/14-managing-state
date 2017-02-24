@@ -10,8 +10,8 @@
     $('#new-form').on('change', newArticle.create);
   };
 
-// TODO: Where is this invoked? What values are passed in? Where does it interact elsewhere in the code?
-// Put your response in this comment...
+// DONE: Where is this invoked? What values are passed in? Where does it interact elsewhere in the code?
+// This is invoked when the form in new.html is changed as a new article is added. The values passed in include any inputs on the form. It interacts within newArticle.js and new.html.
   newArticle.create = function() {
     $('#articles').empty();
     let formArticle = new Article({
